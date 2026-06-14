@@ -1,12 +1,6 @@
-/* ============================================
-   AAYUSH HALWAI — PORTFOLIO JAVASCRIPT
-   Features: Loader, Particles, Typing, Scroll Reveal,
-             Navbar, Back-to-top, Theme Toggle
-   ============================================ */
 
 'use strict';
 
-/* ---- 1. LOADER ---- */
 (function initLoader() {
   const loader = document.getElementById('loader');
   if (!loader) return;
@@ -15,12 +9,11 @@
     setTimeout(() => {
       loader.classList.add('hidden');
       document.body.style.overflow = '';
-      // Kick off hero animations after load
+      
       triggerHeroAnimations();
     }, 900);
   });
 
-  // Prevent scroll while loading
   document.body.style.overflow = 'hidden';
 })();
 
@@ -33,7 +26,6 @@ function triggerHeroAnimations() {
   });
 }
 
-/* ---- 2. PARTICLE CANVAS ---- */
 (function initParticles() {
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
@@ -52,7 +44,7 @@ function triggerHeroAnimations() {
   window.addEventListener('resize', resize);
   resize();
 
-  // Build particles
+  
   function createParticles() {
     particles = [];
     for (let i = 0; i < NUM; i++) {
@@ -79,11 +71,11 @@ function triggerHeroAnimations() {
     ctx.clearRect(0, 0, W, H);
 
     particles.forEach(p => {
-      // Wander
+     
       p.x += p.vx;
       p.y += p.vy;
 
-      // Soft mouse repulsion
+      
       if (mouse.x !== null) {
         const dx = p.x - mouse.x;
         const dy = p.y - mouse.y;
@@ -95,20 +87,20 @@ function triggerHeroAnimations() {
         }
       }
 
-      // Wrap edges
+  
       if (p.x < 0) p.x = W;
       if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H;
       if (p.y > H) p.y = 0;
 
-      // Draw dot
+     
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(167, 139, 250, ${p.alpha})`;
       ctx.fill();
     });
 
-    // Draw connections
+    
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -133,7 +125,6 @@ function triggerHeroAnimations() {
   window.addEventListener('resize', () => { resize(); createParticles(); });
 })();
 
-/* ---- 3. TYPING ANIMATION ---- */
 (function initTyping() {
   const el = document.getElementById('typingText');
   if (!el) return;
@@ -175,24 +166,23 @@ function triggerHeroAnimations() {
     }
   }
 
-  // Wait for loader before starting
   setTimeout(type, 1500);
 })();
 
-/* ---- 4. NAVBAR ---- */
+
 (function initNavbar() {
   const navbar    = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
   const links     = document.querySelectorAll('.nav-link');
 
-  // Sticky effect
+  
   window.addEventListener('scroll', () => {
     if (!navbar) return;
     navbar.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
 
-  // Mobile toggle
+  
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
@@ -200,7 +190,7 @@ function triggerHeroAnimations() {
       hamburger.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close on link click
+    
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -210,7 +200,7 @@ function triggerHeroAnimations() {
     });
   }
 
-  // Active link highlighting
+  
   const sections = document.querySelectorAll('section[id]');
 
   function updateActiveLink() {
@@ -228,15 +218,15 @@ function triggerHeroAnimations() {
   updateActiveLink();
 })();
 
-/* ---- 5. SCROLL REVEAL ---- */
+
 (function initScrollReveal() {
   const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
-  // Skip hero — handled by loader callback
+  
   const toObserve = Array.from(revealEls).filter(el => !el.closest('.hero'));
 
   if (!('IntersectionObserver' in window)) {
-    // Fallback: just show everything
+    
     toObserve.forEach(el => el.classList.add('visible'));
     return;
   }
@@ -253,7 +243,7 @@ function triggerHeroAnimations() {
   toObserve.forEach(el => observer.observe(el));
 })();
 
-/* ---- 6. SKILL BAR ANIMATION ---- */
+
 (function initSkillBars() {
   const fills = document.querySelectorAll('.skill-fill');
   if (!fills.length) return;
@@ -272,7 +262,7 @@ function triggerHeroAnimations() {
   fills.forEach(f => observer.observe(f));
 })();
 
-/* ---- 7. BACK TO TOP ---- */
+
 (function initBackToTop() {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
@@ -286,7 +276,6 @@ function triggerHeroAnimations() {
   });
 })();
 
-/* ---- 8. THEME TOGGLE ---- */
 (function initTheme() {
   const btn  = document.getElementById('themeToggle');
   const root = document.documentElement;
@@ -304,7 +293,7 @@ function triggerHeroAnimations() {
   }
 })();
 
-/* ---- 9. SMOOTH ANCHOR SCROLLING (fallback for older browsers) ---- */
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const target = document.querySelector(anchor.getAttribute('href'));

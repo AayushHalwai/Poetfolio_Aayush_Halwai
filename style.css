@@ -1,9 +1,4 @@
-/* ============================================
-   AAYUSH HALWAI — PORTFOLIO STYLESHEET
-   Design: Dark indigo/violet, Space Grotesk + Inter
-   ============================================ */
 
-/* ---- DESIGN TOKENS ---- */
 :root {
   --bg-base:       #0a0a0f;
   --bg-surface:    #12121a;
@@ -38,8 +33,6 @@
 
   --transition:    all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Light theme overrides */
 [data-theme="light"] {
   --bg-base:       #f0f0f8;
   --bg-surface:    #e8e8f2;
@@ -54,7 +47,6 @@
   --shadow-card:   0 4px 24px rgba(0,0,0,.08), 0 0 0 1px var(--border);
 }
 
-/* ---- RESET & BASE ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -76,7 +68,7 @@ a { color: inherit; text-decoration: none; }
 img, svg { display: block; }
 ul { list-style: none; }
 
-/* ---- UTILITY ---- */
+
 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -92,7 +84,7 @@ ul { list-style: none; }
   background-clip: text;
 }
 
-/* ---- LOADER ---- */
+
 #loader {
   position: fixed;
   inset: 0;
@@ -133,7 +125,7 @@ ul { list-style: none; }
   50% { opacity: 0.6; transform: scale(0.97); }
 }
 
-/* ---- NAVBAR ---- */
+
 #navbar {
   position: fixed;
   top: 0;
@@ -243,7 +235,7 @@ ul { list-style: none; }
 [data-theme="dark"] .sun { display: none; }
 [data-theme="light"] .moon { display: none; }
 
-/* Hamburger */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -269,7 +261,6 @@ ul { list-style: none; }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ---- HERO ---- */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -365,7 +356,7 @@ ul { list-style: none; }
   50% { width: 80px; opacity: 0.5; }
 }
 
-/* ---- BUTTONS ---- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -437,7 +428,6 @@ ul { list-style: none; }
   transform: translateX(3px);
 }
 
-/* ---- SECTIONS ---- */
 .section { padding: 100px 0; }
 .section-alt { background: var(--bg-surface); }
 
@@ -469,7 +459,7 @@ ul { list-style: none; }
   font-size: 1.05rem;
 }
 
-/* ---- ABOUT ---- */
+
 .about-grid {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -555,7 +545,7 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
-/* ---- SKILLS ---- */
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -635,7 +625,7 @@ ul { list-style: none; }
   line-height: 1.6;
 }
 
-/* ---- PROJECTS ---- */
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -736,7 +726,7 @@ ul { list-style: none; }
 
 .projects-cta { text-align: center; }
 
-/* ---- EDUCATION ---- */
+
 .education-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -782,7 +772,7 @@ ul { list-style: none; }
   line-height: 1.65;
 }
 
-/* ---- CONTACT ---- */
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -864,7 +854,6 @@ ul { list-style: none; }
   transform: translateX(4px);
 }
 
-/* ---- FOOTER ---- */
 .footer {
   background: var(--bg-surface);
   border-top: 1px solid var(--border);
@@ -904,7 +893,7 @@ ul { list-style: none; }
   75% { transform: scale(1.15); }
 }
 
-/* ---- BACK TO TOP ---- */
+
 .back-to-top {
   position: fixed;
   bottom: 32px;
@@ -938,7 +927,7 @@ ul { list-style: none; }
   box-shadow: 0 8px 28px rgba(99, 102, 241, 0.6);
 }
 
-/* ---- SCROLL REVEAL ---- */
+
 .reveal-up, .reveal-left, .reveal-right {
   opacity: 0;
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -956,7 +945,7 @@ ul { list-style: none; }
   transition-delay: var(--delay, 0ms);
 }
 
-/* ---- RESPONSIVE ---- */
+
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-avatar { width: 180px; margin: 0 auto; }
@@ -1013,7 +1002,7 @@ ul { list-style: none; }
   .btn { width: 100%; justify-content: center; }
 }
 
-/* Reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
